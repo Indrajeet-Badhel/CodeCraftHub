@@ -14,6 +14,15 @@ VALID_STATUSES = ("Not Started", "In Progress", "Completed")
 PORT = int(os.environ.get("PORT", "5000"))
 
 
+@app.after_request
+def add_cors_headers(response):
+    """Let the separately served dashboard call this local API."""
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type"
+    return response
+
+
 def ensure_data_file():
     """Create the JSON data file with an empty list when it is missing."""
     if not DATA_FILE.exists():

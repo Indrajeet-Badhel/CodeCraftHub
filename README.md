@@ -9,6 +9,7 @@ CodeCraftHub is a beginner-friendly REST API for tracking personal learning cour
 - Numeric IDs start at 1 and increase automatically
 - Validates required fields, dates, statuses, JSON requests, and IDs
 - Stores data in a readable JSON file
+- Includes a responsive CRUD dashboard in `dashboard.html`
 
 Allowed statuses: `Not Started`, `In Progress`, and `Completed`.
 
